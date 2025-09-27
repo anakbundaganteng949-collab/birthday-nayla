@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Kenangan Kita 📸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb, #fad0c4);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 105, 180, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd6e0;
+    }
+
+    /* GALERI */
+    .gallery-container {
+      flex: 1;
+      padding: 100px 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 14px;
+      color: #ffd6e0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(255, 105, 180, 0.9);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* LOVE FALLING */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>💖 Birthday Surprise</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="surat.html">Surat</a>
+      <a href="galeri.html">Galeri</a>
+    </nav>
+  </header>
+
+  <!-- GALERI -->
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="foto6.jpeg" alt="Kenangan 1">
+      <div class="caption">"Setiap senyummu adalah kebahagiaan bagiku 💕"</div>
+    </div>
+    <div class="gallery-item">
+      <img src="foto11.jpeg" alt="Kenangan 2">
+      <div class="caption">"Bersamamu, dunia terasa lebih indah ✨"</div>
+    </div>
+    <div class="gallery-item">
+      <img src="foto22.jpeg" alt="Kenangan 3">
+      <div class="caption">"Kenangan ini adalah hadiah terindah dari waktu 💖"</div>
+    </div>
+    <div class="gallery-item">
+      <img src="foto33.jpeg" alt="Kenangan 4">
+      <div class="caption">"Kamu adalah rumahku, dimanapun aku berada 💌"</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Galeri cinta kita, yang tak akan pernah pudar 💞
+  </footer>
+
+  <!-- LOVE FALL -->
+  <script>
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.innerHTML = "💖";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = "-20px";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.opacity = 0.8;
+      heart.style.animation = "fall 4s linear forwards";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 600);
+  </script>
+</body>
+</html>

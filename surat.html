@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat Untukmu 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fcbad3, #a18cd1);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 105, 180, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd6e0;
+    }
+
+    /* SURAT */
+    .surat-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px 60px;
+    }
+    .surat {
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(255, 105, 180, 0.9);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* LOVE FALLING */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>💖 Birthday Surprise</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="surat.html">Surat</a>
+      <a href="galeri.html">Galeri</a>
+    </nav>
+  </header>
+
+  <!-- ISI SURAT -->
+  <div class="surat-container">
+    <div class="surat" id="suratText"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Dengan penuh cinta, selalu untukmu 💕
+  </footer>
+
+  <!-- SCRIPT MESIN TIK + LOVE FALL -->
+  <script>
+    // Efek mesin tik
+    const surat = `Sayangku...
+
+Hari ini adalah hari yang spesial, hari di mana dunia menjadi lebih indah karena kamu hadir di dalamnya.
+
+Aku ingin kamu tahu, bahwa setiap detik aku bersyukur memilikimu. 
+Kamu adalah alasan senyumku, penguatku, dan rumahku yang selalu kurindukan.
+
+Semoga di ulang tahunmu ini, semua impianmu terwujud, dan kebahagiaan selalu menyertaimu.
+Aku mungkin tidak bisa berada di sampingmu sekarang, tapi hatiku selalu dekat denganmu.
+
+Selamat ulang tahun, cintaku ❤️
+
+- Dari seseorang yang sangat mencintaimu`;
+
+    let i = 0;
+    function typeWriter() {
+      if (i < surat.length) {
+        document.getElementById("suratText").innerHTML += surat.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    window.onload = typeWriter;
+
+    // Efek love jatuh
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.innerHTML = "💖";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = "-20px";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.opacity = 0.8;
+      heart.style.animation = "fall 4s linear forwards";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 600);
+  </script>
+</body>
+</html>
